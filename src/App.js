@@ -1,25 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {Component} from "react"
+import {BrowserRouter,Route,Routes} from "react-router-dom"
+import  Gamer from "./context/Gameprocess"
+import JoinGame from "./components/JoinGame"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import MainScreen from "./components/MainScreen"
 
-export default App;
+import Game from "./components/Game"
+
+ class App extends Component{
+  state={isgamestart:false}
+
+
+
+  changegamestate=()=>{
+    this.setState(prev=>({isgamestart:!prev.isgamestart}))
+  }
+
+
+
+
+  render(){
+    const{isgamestart}=this.state
+
+
+
+    return (<BrowserRouter>
+
+
+    <Gamer.Provider  value={{isgamestart,changegamestate:this.changegamestate}}>
+      <Routes>
+       
+        <Route exact path="/" element={<MainScreen title='main' /> }/>
+        <Route exact path="/join" element={<JoinGame title='join' /> }/>
+        <Route exact path="/game" element={<Game title="game"/>}/>
+    
+    
+    
+    
+      </Routes>
+      
+      
+      </Gamer.Provider>
+      
+      </BrowserRouter>
+      
+        
+      )
+  }
+
+
+
+
+
+
+ }
+ 
+
+export default App

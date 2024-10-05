@@ -1,0 +1,16 @@
+.join-container{
+    height: 100vh;
+    background-color: #45CE30;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inputer{
+    height: 30px;
+    width: 300px;
+    background-color: transparent;
+    color: black;
+}
+
+

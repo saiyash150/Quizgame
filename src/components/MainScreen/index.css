@@ -1,0 +1,24 @@
+.bg-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #74B9FF;
+}
+.head{
+    color: Red;
+}
+.sub{
+    color:blueviolet;
+    font-family: Bree serif;
+}
+.para{
+    color: firebrick;
+    font-size: 18px;
+    font-weight: bold;
+}
+.scan{
+    color: purple;
+    font-size: 24px;
+}
