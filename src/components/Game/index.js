@@ -71,7 +71,7 @@ const Game = () => {
         <>
           <p>Scan the QR code to join the game:</p>
           <QRCodeSVG 
-    value={"https://localhost:3000/"}
+    value={"https://quizgame-kappa.vercel.app/"}
     title={"Title for my QR Code"}
     size={128}
     bgColor={"#ffffff"}
