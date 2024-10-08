@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3 {
+    color: #333;
+    text-align: center;
+  }
+  
+  .App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  p {
+    color: #666;
+    text-align: center;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    width: 200px;
+    margin: 10px 0;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+ 
+  .mobile-screen {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .mobile-screen h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .mobile-screen button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+  }
+  
+  
+  .question-screen {
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .question-screen h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .question-screen div {
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .question-screen div:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  
+  .qr-code {
+    margin: 20px 0;
+  }
+  
+  .qr-code canvas {
+    border: 5px solid #007bff;
+    border-radius: 10px;
+  }
