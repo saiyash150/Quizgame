@@ -70,6 +70,7 @@ const Game = () => {
       }
     } else {
       alert(`${player}, wrong answer!`);
+      setmarks(prev=>prev-1)
     }
   };
   
