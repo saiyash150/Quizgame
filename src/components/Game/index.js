@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {QRCodeSVG} from 'qrcode.react';
 import QuestionScreen from "../QuestionScreen";
 import MobileScreen from "../MobileScreen";
@@ -6,7 +7,9 @@ import "./index.css"
 
 const Game = () => {
   const [players, setPlayers] = useState([]);
+  const[status,setStatus]=useState(false)
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [marks,setmarks]=useState(0)
   const [answers, setAnswers] = useState({});
   const [gameState, setGameState] = useState("waiting");
   
@@ -39,26 +42,32 @@ const Game = () => {
     }
   ];
 
+  
+
   const handlePlayerJoin = (name) => {
     setPlayers((prev) => [...prev, name]);
   };
+  console.log(marks)
 
   const handleAnswerSubmit = (player, answer) => {
     setAnswers((prev) => ({ ...prev, [player]: answer }));
 
     if (answer === questions[currentQuestion].answer) {
+
+      setmarks(prev=>prev+1)
       alert(`Congrats ${player} answered correctly!`);
 
-      if(questions.length===currentQuestion){
-
-        console.log(answers)
-        
-
-      }
+      
      const timerid= setTimeout(() => {
         setCurrentQuestion((prev) => prev + 1);
       }, 2000);
+      if(questions.length-1===currentQuestion){
 
+        clearInterval(timerid)
+        setStatus(true)
+        
+
+      }
     } else {
       alert(`${player}, wrong answer!`);
     }
@@ -66,7 +75,8 @@ const Game = () => {
   
   return (
     <div className="App">
-      <h1>Quiz Game by Sai Yashwanth!</h1>
+      {status?<h1>Congrats {[...players]} got {marks} marks</h1>:<h1>Quiz Game by Sai Yashwanth!</h1>}
+      
       {gameState === "waiting" && (
         <>
           <p>Scan the QR code to join the game:</p>
@@ -91,7 +101,10 @@ const Game = () => {
           <p>Players joined: {players.join(", ")}</p>
         </>
       )}
-      {gameState === "playing" && (
+      {status?<div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
+        <h1>Game is Over!</h1>
+        <a href="https://quizgame-kappa.vercel.app/">Play again</a>
+      </div>:<>{gameState === "playing" && (
         <QuestionScreen
           currentQuestion={questions[currentQuestion]}
           players={players}
@@ -101,7 +114,7 @@ const Game = () => {
         onPlayerJoin={handlePlayerJoin}
         onAnswerSubmit={handleAnswerSubmit}
         currentQuestion={questions[currentQuestion]}
-      />
+      /></>}
     </div>
   );
 };
